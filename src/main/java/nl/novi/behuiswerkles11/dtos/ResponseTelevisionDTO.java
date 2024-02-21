@@ -1,15 +1,9 @@
-package nl.novi.behuiswerkles11.models;
+package nl.novi.behuiswerkles11.dtos;
 
-import jakarta.persistence.*;
+// output van de repository (responseEntity)
 
-@Entity
-@Table(name = "televisions")
-public class Television {
-
-    @Id
-    @GeneratedValue
+public class ResponseTelevisionDTO {
     private Long id;
-    @Column(unique = true)
     private String brand;
     private String name;
     private Double price;
@@ -23,14 +17,11 @@ public class Television {
     private Boolean hdr;
     private Boolean bluetooth;
     private Boolean ambiLight;
-    private Integer originalStock;
-    private Integer sold;
 
-    public Television() {
-
+    public ResponseTelevisionDTO() {
     }
 
-    public Television(Long id, String brand, String name, Double price, Double availableSize, Double refreshRate, String screenType, String screenQuality, Boolean smartTv, Boolean wifi, Boolean voiceControl, Boolean hdr, Boolean bluetooth, Boolean ambiLight, Integer originalStock, Integer sold) {
+    public ResponseTelevisionDTO(Long id, String brand, String name, Double price, Double availableSize, Double refreshRate, String screenType, String screenQuality, Boolean smartTv, Boolean wifi, Boolean voiceControl, Boolean hdr, Boolean bluetooth, Boolean ambiLight) {
         this.id = id;
         this.brand = brand;
         this.name = name;
@@ -45,12 +36,14 @@ public class Television {
         this.hdr = hdr;
         this.bluetooth = bluetooth;
         this.ambiLight = ambiLight;
-        this.originalStock = originalStock;
-        this.sold = sold;
     }
 
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getBrand() {
@@ -155,21 +148,5 @@ public class Television {
 
     public void setAmbiLight(Boolean ambiLight) {
         this.ambiLight = ambiLight;
-    }
-
-    public Integer getOriginalStock() {
-        return originalStock;
-    }
-
-    public void setOriginalStock(Integer originalStock) {
-        this.originalStock = originalStock;
-    }
-
-    public Integer getSold() {
-        return sold;
-    }
-
-    public void setSold(Integer sold) {
-        this.sold = sold;
     }
 }

@@ -1,15 +1,12 @@
-package nl.novi.behuiswerkles11.models;
+package nl.novi.behuiswerkles11.dtos;
 
-import jakarta.persistence.*;
+// input van de repository (http request)
 
-@Entity
-@Table(name = "televisions")
-public class Television {
+import org.antlr.v4.runtime.misc.NotNull;
 
-    @Id
-    @GeneratedValue
-    private Long id;
-    @Column(unique = true)
+public class RequestTelevisionDTO {
+//    Id wordt aangemaakt op dit punt, dus hoeven we niet mee te geven
+    @NotNull
     private String brand;
     private String name;
     private Double price;
@@ -25,33 +22,6 @@ public class Television {
     private Boolean ambiLight;
     private Integer originalStock;
     private Integer sold;
-
-    public Television() {
-
-    }
-
-    public Television(Long id, String brand, String name, Double price, Double availableSize, Double refreshRate, String screenType, String screenQuality, Boolean smartTv, Boolean wifi, Boolean voiceControl, Boolean hdr, Boolean bluetooth, Boolean ambiLight, Integer originalStock, Integer sold) {
-        this.id = id;
-        this.brand = brand;
-        this.name = name;
-        this.price = price;
-        this.availableSize = availableSize;
-        this.refreshRate = refreshRate;
-        this.screenType = screenType;
-        this.screenQuality = screenQuality;
-        this.smartTv = smartTv;
-        this.wifi = wifi;
-        this.voiceControl = voiceControl;
-        this.hdr = hdr;
-        this.bluetooth = bluetooth;
-        this.ambiLight = ambiLight;
-        this.originalStock = originalStock;
-        this.sold = sold;
-    }
-
-    public Long getId() {
-        return id;
-    }
 
     public String getBrand() {
         return brand;
