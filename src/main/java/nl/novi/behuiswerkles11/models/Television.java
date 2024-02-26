@@ -7,9 +7,9 @@ import jakarta.persistence.*;
 public class Television {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(unique = true)
+    @Column(nullable = false)
     private String brand;
     private String name;
     private Double price;

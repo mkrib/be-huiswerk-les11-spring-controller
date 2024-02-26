@@ -1,9 +1,15 @@
 package nl.novi.behuiswerkles11.dtos;
 
-// output van de repository (responseEntity)
+// input van de repository (http request)
 
-public class ResponseTelevisionDTO {
-    private Long id;
+import jakarta.validation.constraints.NotEmpty;
+import org.antlr.v4.runtime.misc.NotNull;
+
+// TODO Vraag: Wat is het verschil tussen @NotNull, @NotEmpty en @NotBlank? En welke heeft de voorkeur?
+
+public class TelevisionRequestDto {
+//    Id wordt aangemaakt op dit punt, dus hoeven we niet mee te geven
+    @NotEmpty(message = "Brand must be filled out")
     private String brand;
     private String name;
     private Double price;
@@ -17,34 +23,8 @@ public class ResponseTelevisionDTO {
     private Boolean hdr;
     private Boolean bluetooth;
     private Boolean ambiLight;
-
-    public ResponseTelevisionDTO() {
-    }
-
-    public ResponseTelevisionDTO(Long id, String brand, String name, Double price, Double availableSize, Double refreshRate, String screenType, String screenQuality, Boolean smartTv, Boolean wifi, Boolean voiceControl, Boolean hdr, Boolean bluetooth, Boolean ambiLight) {
-        this.id = id;
-        this.brand = brand;
-        this.name = name;
-        this.price = price;
-        this.availableSize = availableSize;
-        this.refreshRate = refreshRate;
-        this.screenType = screenType;
-        this.screenQuality = screenQuality;
-        this.smartTv = smartTv;
-        this.wifi = wifi;
-        this.voiceControl = voiceControl;
-        this.hdr = hdr;
-        this.bluetooth = bluetooth;
-        this.ambiLight = ambiLight;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
+    private Integer originalStock;
+    private Integer sold;
 
     public String getBrand() {
         return brand;
@@ -148,5 +128,21 @@ public class ResponseTelevisionDTO {
 
     public void setAmbiLight(Boolean ambiLight) {
         this.ambiLight = ambiLight;
+    }
+
+    public Integer getOriginalStock() {
+        return originalStock;
+    }
+
+    public void setOriginalStock(Integer originalStock) {
+        this.originalStock = originalStock;
+    }
+
+    public Integer getSold() {
+        return sold;
+    }
+
+    public void setSold(Integer sold) {
+        this.sold = sold;
     }
 }

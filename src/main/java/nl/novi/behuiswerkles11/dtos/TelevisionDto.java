@@ -1,12 +1,9 @@
 package nl.novi.behuiswerkles11.dtos;
 
-// input van de repository (http request)
+// output van de repository (responseEntity)
 
-import org.antlr.v4.runtime.misc.NotNull;
-
-public class RequestTelevisionDTO {
-//    Id wordt aangemaakt op dit punt, dus hoeven we niet mee te geven
-    @NotNull
+public class TelevisionDto {
+    private Long id;
     private String brand;
     private String name;
     private Double price;
@@ -20,8 +17,34 @@ public class RequestTelevisionDTO {
     private Boolean hdr;
     private Boolean bluetooth;
     private Boolean ambiLight;
-    private Integer originalStock;
-    private Integer sold;
+
+    public TelevisionDto() {
+    }
+
+    public TelevisionDto(Long id, String brand, String name, Double price, Double availableSize, Double refreshRate, String screenType, String screenQuality, Boolean smartTv, Boolean wifi, Boolean voiceControl, Boolean hdr, Boolean bluetooth, Boolean ambiLight) {
+        this.id = id;
+        this.brand = brand;
+        this.name = name;
+        this.price = price;
+        this.availableSize = availableSize;
+        this.refreshRate = refreshRate;
+        this.screenType = screenType;
+        this.screenQuality = screenQuality;
+        this.smartTv = smartTv;
+        this.wifi = wifi;
+        this.voiceControl = voiceControl;
+        this.hdr = hdr;
+        this.bluetooth = bluetooth;
+        this.ambiLight = ambiLight;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getBrand() {
         return brand;
@@ -125,21 +148,5 @@ public class RequestTelevisionDTO {
 
     public void setAmbiLight(Boolean ambiLight) {
         this.ambiLight = ambiLight;
-    }
-
-    public Integer getOriginalStock() {
-        return originalStock;
-    }
-
-    public void setOriginalStock(Integer originalStock) {
-        this.originalStock = originalStock;
-    }
-
-    public Integer getSold() {
-        return sold;
-    }
-
-    public void setSold(Integer sold) {
-        this.sold = sold;
     }
 }
