@@ -52,7 +52,7 @@ public class TelevisionsController {
 //        TelevisionDto dto = televisionService.updateTelevision(id, televisionRequestDto);
 //
 //        return ResponseEntity.noContent().build(dto);
-    }
+//    }
 
     //    Request mapping voor het verwijderen van 1 tv op basis van het id
     @DeleteMapping("/{id}")
