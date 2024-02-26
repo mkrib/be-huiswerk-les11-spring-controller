@@ -1,0 +1,1 @@
+INSERT INTO televisions (name, brand, price, wifi, voice_control) VALUES ('TV123', 'Samsung', 400, true, false);
