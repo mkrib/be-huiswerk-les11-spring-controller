@@ -2,6 +2,8 @@ package nl.novi.behuiswerkles11.models;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "televisions")
 public class Television {
@@ -25,6 +27,13 @@ public class Television {
     private Boolean ambiLight;
     private Integer originalStock;
     private Integer sold;
+    @OneToOne
+    @JoinColumn(name = "remoteControllerId")
+    private RemoteController remoteController;
+    @OneToMany(mappedBy = "television")
+    private List<CiModule> ciModules;
+    @ManyToMany(mappedBy = "televisions")
+    private List<WallBracket> wallBrackets;
 
     public Television() {
 

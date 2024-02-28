@@ -2,6 +2,9 @@ package nl.novi.behuiswerkles11.dtos;
 
 // input van de repository (http request)
 
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotEmpty;
 import org.antlr.v4.runtime.misc.NotNull;
 
@@ -9,6 +12,9 @@ import org.antlr.v4.runtime.misc.NotNull;
 
 public class TelevisionRequestDto {
 //    Id wordt aangemaakt op dit punt, dus hoeven we niet mee te geven
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     @NotEmpty(message = "Brand must be filled out")
     private String brand;
     private String name;

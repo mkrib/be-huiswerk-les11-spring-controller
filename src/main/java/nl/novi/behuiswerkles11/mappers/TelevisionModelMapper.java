@@ -41,7 +41,7 @@ public class TelevisionModelMapper {
     }
 
     //    Mapper functie om de input/request om te zetten naar een tv
-    public Television createTelevision(TelevisionRequestDto dto) {
+    public Television translateToTelevision(TelevisionRequestDto dto) {
         Television television = new Television();
 
         television.setBrand(dto.getBrand());
@@ -59,6 +59,27 @@ public class TelevisionModelMapper {
         television.setAmbiLight(dto.getAmbiLight());
 
         return television;
+    }
+    
+    public Television updateTelevision(Television originalTelevision, Television updateTelevision) {
+        if (updateTelevision.getBrand() != null) {
+            originalTelevision.setBrand(updateTelevision.getBrand());
+        }
+        originalTelevision.setName(updateTelevision.getName());
+        originalTelevision.setPrice(updateTelevision.getPrice());
+        originalTelevision.setAvailableSize(updateTelevision.getAvailableSize());
+        originalTelevision.setRefreshRate(updateTelevision.getRefreshRate());
+        originalTelevision.setScreenType(updateTelevision.getScreenType());
+        originalTelevision.setScreenQuality(updateTelevision.getScreenQuality());
+        originalTelevision.setSmartTv(updateTelevision.getSmartTv());
+        originalTelevision.setWifi(updateTelevision.getWifi());
+        originalTelevision.setVoiceControl(updateTelevision.getVoiceControl());
+        originalTelevision.setHdr(updateTelevision.getHdr());
+        originalTelevision.setBluetooth(updateTelevision.getBluetooth());
+        originalTelevision.setAmbiLight(updateTelevision.getAmbiLight());
+
+
+        return originalTelevision;
     }
 
 
