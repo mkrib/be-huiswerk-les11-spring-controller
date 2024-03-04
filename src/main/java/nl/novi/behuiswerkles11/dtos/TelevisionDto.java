@@ -2,7 +2,13 @@ package nl.novi.behuiswerkles11.dtos;
 
 // output van de repository (responseEntity)
 
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
 public class TelevisionDto {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String brand;
     private String name;
@@ -17,6 +23,7 @@ public class TelevisionDto {
     private Boolean hdr;
     private Boolean bluetooth;
     private Boolean ambiLight;
+    public RemoteControllerDto remotecontroller;
 
     public TelevisionDto() {
     }

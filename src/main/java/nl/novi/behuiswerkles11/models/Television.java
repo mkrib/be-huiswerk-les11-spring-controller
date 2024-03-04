@@ -58,6 +58,30 @@ public class Television {
         this.sold = sold;
     }
 
+    public RemoteController getRemoteController() {
+        return remoteController;
+    }
+
+    public void setRemoteController(RemoteController remoteController) {
+        this.remoteController = remoteController;
+    }
+
+    public List<CiModule> getCiModules() {
+        return ciModules;
+    }
+
+    public void setCiModules(List<CiModule> ciModules) {
+        this.ciModules = ciModules;
+    }
+
+    public List<WallBracket> getWallBrackets() {
+        return wallBrackets;
+    }
+
+    public void setWallBrackets(List<WallBracket> wallBrackets) {
+        this.wallBrackets = wallBrackets;
+    }
+
     public Long getId() {
         return id;
     }

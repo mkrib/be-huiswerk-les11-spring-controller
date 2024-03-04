@@ -8,8 +8,6 @@ import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotEmpty;
 import org.antlr.v4.runtime.misc.NotNull;
 
-// TODO Vraag: Wat is het verschil tussen @NotNull, @NotEmpty en @NotBlank? En welke heeft de voorkeur?
-
 public class TelevisionRequestDto {
 //    Id wordt aangemaakt op dit punt, dus hoeven we niet mee te geven
     @Id

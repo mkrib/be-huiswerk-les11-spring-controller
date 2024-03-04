@@ -47,11 +47,18 @@ public class TelevisionsController {
 
 //    Request mapping voor het aanpassen van 1 tv op basis van het id
     @PutMapping("/{id}")
-    public ResponseEntity<TelevisionDto> updateTelevision(@PathVariable Long id, @RequestBody TelevisionRequestDto televisionRequestDto) {
+    public ResponseEntity<TelevisionDto> updateTelevision(@PathVariable Long id, @Valid @RequestBody TelevisionRequestDto televisionRequestDto) {
        Television updatedTelevision = televisionService.updateTelevision(id, televisionModelMapper.translateToTelevision(televisionRequestDto));
        return ResponseEntity.ok(televisionModelMapper.translateToDto(updatedTelevision));
 //        return televisionService.updateTelevision(id, televisionModelMapper.createTelevision(id, televisionRequestDto)).map(updatedTelevision -> ResponseEntity.ok().body(televisionModelMapper.translateToDto())).orElse;
 //        (new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+
+//    PUT Mapping voor het koppelen remote en tv
+    @PutMapping("/{televisionid}/remotecontroller/{remotecontrollerid}")
+    public ResponseEntity<Void> assignRemoteToTelevision(@PathVariable Long televisionid, @PathVariable Long remotecontrollerid) {
+        televisionService.assignRemoteToTelevision(televisionid, remotecontrollerid);
+        return ResponseEntity.noContent().build();
     }
 
     //    Request mapping voor het verwijderen van 1 tv op basis van het id

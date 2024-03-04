@@ -15,6 +15,7 @@ public class TelevisionModelMapper {
     public TelevisionDto translateToDto(Television television) {
         TelevisionDto dto = new TelevisionDto();
 
+        dto.setId(television.getId());
         dto.setName(television.getName());
         dto.setBrand(television.getBrand());
         dto.setPrice(television.getPrice());
